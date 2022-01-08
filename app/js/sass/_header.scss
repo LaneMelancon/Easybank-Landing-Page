@@ -1,6 +1,13 @@
 .header {
 	nav {
-		padding: 24px;
+		padding: 1.0625rem 1.5rem;
+	}
+
+	&__logo {
+		img {
+			width: 8.8125rem;
+			height: 1.375rem;
+		}
 	}
 
 	&__menu {
@@ -16,5 +23,30 @@
 				margin-bottom: 3px;
 			}
 		}
+	}
+
+	&__links {
+		a {
+			font-size: $font-sm;
+			color: $grayishBlue;
+			transition: color 300ms ease-in-out;
+			-webkit-transition: color 300ms ease-in-out;
+			-moz-transition: color 300ms ease-in-out;
+			-ms-transition: color 300ms ease-in-out;
+			-o-transition: color 300ms ease-in-out;
+
+			&:not(:last-child) {
+				margin-right: 2rem;
+			}
+
+			&:hover {
+				color: $darkBlue;
+			}
+		}
+	}
+
+	&__cta {
+		font-size: $font-sm;
+		color: $white;
 	}
 }
