@@ -1,6 +1,41 @@
 .header {
+	// Hamburger Open Styles
+	&.open {
+		.overlay {
+			visibility: hidden;
+		}
+
+		.header__toggle {
+			> span:first-child {
+				transform: rotate(45deg);
+			}
+
+			> span:nth-child(2) {
+				opacity: 0;
+			}
+
+			> span:last-child {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+
+	.overlay {
+		opacity: 0;
+		position: fixed;
+		top: 0px;
+		right: 0rem;
+		bottom: 0rem;
+		left: 0rem;
+		background-color: $darkBlue;
+		background: linear-gradient($darkBlue, transparent);
+	}
+
 	nav {
-		padding: 1.0625rem 1.5rem;
+		position: relative;
+		background-color: $white;
+		padding-top: 1.0625rem;
+		padding-bottom: 1.0625rem;
 	}
 
 	&__logo {
@@ -10,37 +45,72 @@
 		}
 	}
 
-	&__menu {
-		// Mobile Menu
+	&__toggle {
+		// Mobile Menu Toggle
 
-		span {
+		> span {
 			display: block;
 			width: 26px;
 			height: 2px;
 			background-color: $darkBlue;
+			transition: all 300ms ease-in-out;
+			transform-origin: 0.1875rem 0.0625rem;
 
 			&:not(:last-child) {
-				margin-bottom: 3px;
+				margin-bottom: 0.3125rem;
 			}
+		}
+	}
+
+	&__menu {
+		position: absolute;
+		width: calc(100% - 3rem);
+		left: 50%;
+		transform: translateX(-50%);
+		background: $white;
+		margin-top: 1.5rem;
+		padding: 1.625rem;
+		border-radius: 0.3125rem;
+
+		a {
+			display: block;
+			padding-top: 0.625rem;
+			padding-bottom: 0.625rem;
+			color: $darkBlue;
+			text-align: center;
 		}
 	}
 
 	&__links {
 		a {
+			position: relative;
 			font-size: $font-sm;
 			color: $grayishBlue;
 			transition: color 300ms ease-in-out;
-			-webkit-transition: color 300ms ease-in-out;
-			-moz-transition: color 300ms ease-in-out;
-			-ms-transition: color 300ms ease-in-out;
-			-o-transition: color 300ms ease-in-out;
 
 			&:not(:last-child) {
 				margin-right: 2rem;
 			}
 
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				height: 5px;
+				left: 0;
+				right: 0;
+				bottom: -30px;
+				background: linear-gradient(to right, $limeGreen, $brightCyan);
+				opacity: 0;
+				transition: opacity 300ms ease-in-out;
+			}
+
 			&:hover {
 				color: $darkBlue;
+
+				&::before {
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -48,5 +118,10 @@
 	&__cta {
 		font-size: $font-sm;
 		color: $white;
+		transition: opacity 300ms ease-in-out;
+
+		&:hover {
+			opacity: 0.75;
+		}
 	}
 }
