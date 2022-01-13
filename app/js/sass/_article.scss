@@ -3,9 +3,6 @@
 }
 
 .article {
-	&__content {
-	}
-
 	&__grid {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -21,12 +18,28 @@
 	}
 
 	&__item {
+		background-color: $white;
 		overflow: hidden;
+		box-shadow: 0px 0.1875rem 0.75rem rgba(0, 0, 0, 0.15);
 		border-radius: 0.3125rem;
 		-webkit-border-radius: 0.3125rem;
 		-moz-border-radius: 0.3125rem;
 		-ms-border-radius: 0.3125rem;
 		-o-border-radius: 0.3125rem;
+		transition: all 150ms ease-in-out;
+		-webkit-transition: all 150ms ease-in-out;
+		-moz-transition: all 150ms ease-in-out;
+		-ms-transition: all 150ms ease-in-out;
+		-o-transition: all 150ms ease-in-out;
+
+		&:hover {
+			box-shadow: 0px 0.1875rem 0.8rem rgba(0, 0, 0, 0.25);
+			transform: scale(1.03);
+			-webkit-transform: scale(1.03);
+			-moz-transform: scale(1.03);
+			-ms-transform: scale(1.03);
+			-o-transform: scale(1.03);
+		}
 	}
 
 	&__image {
@@ -37,7 +50,6 @@
 	}
 
 	&__text {
-		background-color: $white;
 		padding: 1.875rem 1.875rem 2.5rem 1.875rem;
 		color: $grayishBlue;
 
